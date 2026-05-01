@@ -22,12 +22,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (Schema::hasTable('users') && \App\Models\User::count() === 0) {
-            try {
+        try {
+            if (!$this->app->runningInConsole() && Schema::hasTable('users') && \App\Models\User::count() === 0) {
                 Artisan::call('db:seed --force');
-            } catch (\Throwable $e) {
-                logger()->error('Auto-seed failed: ' . $e->getMessage());
             }
+        } catch (\Throwable $e) {
+            // Database not available during build phase
         }
 
         Blade::directive('role', function ($expression) {
