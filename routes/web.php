@@ -33,7 +33,7 @@ Route::get('/dashboard', function () {
     }
 
     return redirect()->route('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth', 'verified', 'role:customer'])->prefix('portal')->name('portal.')->group(function () {
+Route::middleware(['auth', 'role:customer'])->prefix('portal')->name('portal.')->group(function () {
     Route::get('/', [PortalController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/bookings', [PortalController::class, 'bookings'])->name('bookings.index');
@@ -58,7 +58,7 @@ Route::middleware(['auth', 'verified', 'role:customer'])->prefix('portal')->name
     Route::patch('/profile', [PortalController::class, 'updateProfile'])->name('profile.update');
 });
 
-Route::middleware(['auth', 'verified', 'role:admin,staff'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'role:admin,staff'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', DashboardController::class)->name('dashboard');
 
     Route::get('packages/create', [PackageController::class, 'create'])->name('packages.create')->middleware('role:admin');
