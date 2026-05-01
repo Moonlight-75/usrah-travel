@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .dark {
+        color-scheme: dark;
+    }
+}
+
+@layer components {
+    .dark .bg-white {
+        background-color: rgb(31 41 55);
+    }
+    .dark .bg-gray-50 {
+        background-color: rgb(17 24 39);
+    }
+    .dark .bg-gray-200 {
+        background-color: rgb(75 85 99);
+    }
+    .dark .bg-gray-100 {
+        background-color: rgb(55 65 81);
+    }
+    .dark .shadow-sm {
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    }
+    .dark .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+        border-color: rgb(55 65 81);
+    }
+    .dark .border-gray-200 {
+        border-color: rgb(55 65 81);
+    }
+    .dark .border-gray-100 {
+        border-color: rgb(55 65 81);
+    }
+    .dark table thead tr,
+    .dark .bg-gray-50 {
+        background-color: rgb(17 24 39);
+    }
+    .dark .hover\:bg-gray-50:hover {
+        background-color: rgb(55 65 81);
+    }
+    .dark .hover\:bg-gray-100:hover {
+        background-color: rgb(55 65 81);
+    }
+    .dark .hover\:bg-gray-200:hover {
+        background-color: rgb(75 85 99);
+    }
+    .dark input,
+    .dark select,
+    .dark textarea {
+        background-color: rgb(17 24 39);
+        border-color: rgb(55 65 81);
+        color: rgb(229 231 235);
+    }
+    .dark input:focus,
+    .dark select:focus,
+    .dark textarea:focus {
+        border-color: rgb(16 185 129);
+    }
+    .dark input::placeholder,
+    .dark textarea::placeholder {
+        color: rgb(107 114 128);
+    }
+
+    .dark .text-gray-900 { color: rgb(243 244 246); }
+    .dark .text-gray-800 { color: rgb(229 231 235); }
+    .dark .text-gray-700 { color: rgb(209 213 219); }
+    .dark .text-gray-600 { color: rgb(156 163 175); }
+
+    .dark .bg-emerald-50 { background-color: rgb(6 78 59); }
+    .dark .bg-red-50 { background-color: rgb(127 29 29); }
+    .dark .bg-blue-50 { background-color: rgb(30 58 138); }
+    .dark .bg-amber-50 { background-color: rgb(120 53 15); }
+    .dark .bg-purple-50 { background-color: rgb(88 28 135); }
+
+    .dark .bg-gray-100.text-gray-700,
+    .dark .bg-gray-100.text-gray-800 { background-color: rgb(55 65 81); color: rgb(209 213 219); }
+    .dark .bg-emerald-100.text-emerald-700 { background-color: rgba(5, 150, 105, 0.2); color: rgb(110, 231, 183); }
+    .dark .bg-blue-100.text-blue-700 { background-color: rgba(37, 99, 235, 0.2); color: rgb(147, 197, 253); }
+    .dark .bg-red-100.text-red-700 { background-color: rgba(220, 38, 38, 0.2); color: rgb(248, 113, 113); }
+    .dark .bg-yellow-100.text-yellow-700 { background-color: rgba(202, 138, 4, 0.2); color: rgb(253, 224, 71); }
+    .dark .bg-purple-100.text-purple-700 { background-color: rgba(126, 34, 206, 0.2); color: rgb(196, 181, 253); }
+    .dark .bg-indigo-100.text-indigo-700 { background-color: rgba(55, 48, 163, 0.2); color: rgb(165, 180, 252); }
+    .dark .bg-cyan-100.text-cyan-700 { background-color: rgba(22, 78, 99, 0.2); color: rgb(103, 232, 249); }
+    .dark .bg-orange-100.text-orange-700 { background-color: rgba(234, 88, 12, 0.2); color: rgb(251, 191, 36); }
+    .dark .bg-amber-100.text-amber-700 { background-color: rgba(217, 119, 6, 0.2); color: rgb(251, 191, 36); }
+    .dark .bg-green-100.text-green-700 { background-color: rgba(22, 163, 74, 0.2); color: rgb(134, 239, 172); }
+    .dark .bg-green-200.text-green-900 { background-color: rgba(22, 163, 74, 0.2); color: rgb(187, 247, 208); }
+}
