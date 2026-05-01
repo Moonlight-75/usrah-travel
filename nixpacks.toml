@@ -2,7 +2,7 @@
 nixPkgs = ['nodejs_22', 'php', 'phpPackages.composer']
 
 [phases.install]
-cmds = ['composer install --no-interaction --optimize-autoloader --no-dev', 'npm ci']
+cmds = ['composer install --no-interaction --optimize-autoloader', 'npm ci']
 
 [phases.build]
 cmds = ['npm run build']
