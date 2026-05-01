@@ -38,13 +38,13 @@ class ReportController extends Controller
 
         $monthlyRevenue = Payment::where('status', 'verified')
             ->whereBetween('paid_date', [$startDate, $endDate])
-            ->selectRaw("DATE_FORMAT(paid_date, '%Y-%m') as month, SUM(amount) as total")
+            ->selectRaw("TO_CHAR(paid_date, 'YYYY-MM') as month, SUM(amount) as total")
             ->groupBy('month')
             ->orderBy('month')
             ->pluck('total', 'month');
 
         $monthlyBookings = Booking::whereBetween('created_at', [$startDate, $endDate])
-            ->selectRaw("DATE_FORMAT(created_at, '%Y-%m') as month, COUNT(*) as total")
+            ->selectRaw("TO_CHAR(created_at, 'YYYY-MM') as month, COUNT(*) as total")
             ->groupBy('month')
             ->orderBy('month')
             ->pluck('total', 'month');
@@ -116,7 +116,7 @@ class ReportController extends Controller
             ->get();
 
         $customerGrowth = Customer::whereBetween('created_at', [$startDate, $endDate])
-            ->selectRaw("DATE_FORMAT(created_at, '%Y-%m') as month, COUNT(*) as total")
+            ->selectRaw("TO_CHAR(created_at, 'YYYY-MM') as month, COUNT(*) as total")
             ->groupBy('month')
             ->orderBy('month')
             ->pluck('total', 'month');

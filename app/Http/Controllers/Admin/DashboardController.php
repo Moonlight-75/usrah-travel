@@ -34,7 +34,7 @@ class DashboardController extends Controller
             ->take(5)
             ->get();
 
-        $monthlyBookings = Booking::selectRaw("DATE_FORMAT(created_at, '%Y-%m') as month, COUNT(*) as count")
+        $monthlyBookings = Booking::selectRaw("TO_CHAR(created_at, 'YYYY-MM') as month, COUNT(*) as count")
             ->groupBy('month')
             ->orderBy('month')
             ->take(6)
